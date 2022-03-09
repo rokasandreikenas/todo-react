@@ -1,0 +1,40 @@
+$input-border: #8b8a8b;
+$button-color: #275efe;
+$error-color: #d32f2f;
+
+form {
+  width: 300px;
+  margin: auto;
+}
+
+input,
+textarea {
+  width: 100%;
+}
+
+.field {
+  margin-bottom: 16px;
+}
+
+.input {
+  font-size: 16px;
+  font-family: inherit;
+  padding: 0.25em 0.5em;
+  background-color: #fff;
+  border: 2px solid $input-border;
+  border-radius: 4px;
+}
+
+button[type="submit"] {
+  background: $button-color;
+  padding: 16px;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.error {
+  color: $error-color;
+}

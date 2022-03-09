@@ -1,0 +1,17 @@
+$done-color: #4caf50;
+$active-color: #bbb;
+$error-color: #d32f2f;
+$white: #ffffff;
+$rounded: 5px;
+
+#tasks {
+  width: 300px;
+  margin: auto;
+  background-color: $white;
+  border-radius: $rounded;
+  padding: 36px;
+}
+
+ul {
+  padding: 0;
+}

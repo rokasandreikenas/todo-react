@@ -1,0 +1,21 @@
+$link-color: #275efe;
+$link-bg: #d3defe;
+
+nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: $link-color;
+  padding: 20px;
+  margin: 8px;
+  font-size: 18px;
+  border-radius: 4px;
+  font-weight: 500;
+
+  &:hover {
+    background: $link-bg;
+  }
+
+  &.active {
+    background: $link-bg;
+  }
+}
