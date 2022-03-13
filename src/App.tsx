@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { HOME, NEW_TASK } from "./routes";
 import { NewTask, Tasks } from "./pages";
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <Routes>
@@ -13,6 +13,6 @@ function App() {
       </Routes>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
