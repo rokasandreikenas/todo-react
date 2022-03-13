@@ -24,7 +24,7 @@ export const getTasks = () => {
 };
 
 export const markDoneTask = (task: Task) => {
-  return fetch(api + task.id, {
+  return fetch(`${api}${task.id}`, {
     method: Method.PUT,
     headers: {
       "Content-Type": json,
