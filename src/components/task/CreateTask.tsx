@@ -6,7 +6,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 
 import { HOME } from "../../routes";
 import { Task } from "../../types";
-import { createTask } from "../../api/API";
+import { useCreateTask } from "../../hooks";
 import { useNavigate } from "react-router-dom";
 
 interface FormValues {
@@ -16,6 +16,9 @@ interface FormValues {
 
 const CreateTask = () => {
   const navigate = useNavigate();
+  const navigateHome = () => navigate(HOME);
+
+  const createTask = useCreateTask(navigateHome);
 
   const initialValues: FormValues = { name: "", description: "" };
 
@@ -24,7 +27,7 @@ const CreateTask = () => {
     description: yup.string().required("Required").min(5, "Minimum 5 letters"),
   });
 
-  const handleSubmit = (
+  const handleSubmit = async (
     values: FormValues,
     setSubmitting: (isSubmitting: boolean) => void
   ) => {
@@ -36,12 +39,8 @@ const CreateTask = () => {
       done: false,
     };
 
-    createTask(task)
-      .then(() => {
-        navigate(HOME);
-      })
-      .catch((err: Error) => console.error(err))
-      .finally(() => setSubmitting(false));
+    await createTask.mutateAsync(task);
+    setSubmitting(false);
   };
 
   return (
@@ -53,7 +52,7 @@ const CreateTask = () => {
       }
     >
       {({ handleSubmit, isSubmitting }) => (
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} className="form">
           <h2>Create new task</h2>
           <div className="field">
             <Field
@@ -80,7 +79,11 @@ const CreateTask = () => {
               render={(msg) => <div className="error">{msg}</div>}
             />
           </div>
-          <button type="submit" disabled={isSubmitting}>
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="submit-button"
+          >
             Create
           </button>
         </Form>
@@ -88,4 +91,5 @@ const CreateTask = () => {
     </Formik>
   );
 };
+
 export default CreateTask;

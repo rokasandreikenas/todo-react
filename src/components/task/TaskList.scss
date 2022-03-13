@@ -4,14 +4,14 @@ $error-color: #d32f2f;
 $white: #ffffff;
 $rounded: 5px;
 
-#tasks {
+.tasks {
   width: 300px;
   margin: auto;
   background-color: $white;
   border-radius: $rounded;
   padding: 36px;
-}
 
-ul {
-  padding: 0;
+  .list {
+    padding: 0;
+  }
 }
