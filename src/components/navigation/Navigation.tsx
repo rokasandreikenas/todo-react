@@ -19,7 +19,7 @@ const Navigation = () => {
   return (
     <nav>
       {pages.map((page) => (
-        <NavLink to={page.to} key={page.name}>
+        <NavLink to={page.to} key={page.name} className="nav-link">
           {page.name}
         </NavLink>
       ))}

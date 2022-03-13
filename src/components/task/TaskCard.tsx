@@ -11,7 +11,7 @@ const TaskCard = (props: Props) => {
   const { task, onDone } = props;
 
   return (
-    <li>
+    <li className="item">
       <div className="heading">
         <span className={task.done ? "done" : ""}>
           <strong>{task.title}</strong>
